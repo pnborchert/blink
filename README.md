@@ -7,6 +7,12 @@
 <p align="center"><b>Teleport your mouse cursor between screens with a keyboard shortcut.</b><br>
 A tiny, free menu bar app for macOS.</p>
 
+<p align="center">
+  <a href="https://github.com/pnborchert/blink/releases/latest/download/Blink.zip"><img src="https://img.shields.io/github/v/release/pnborchert/blink?label=Download&style=for-the-badge&color=6d5bf5" alt="Download Blink"></a>
+</p>
+
+<p align="center">or with Homebrew:&nbsp; <code>brew install --cask pnborchert/tap/blink</code></p>
+
 ---
 
 Got two or three monitors and tired of dragging the mouse across all of them to find the cursor? Press <kbd>⌥ Tab</kbd> and the cursor **blinks** to your other screen — right back to where you left it — and the window there gets keyboard focus, so you can just keep typing.
@@ -31,15 +37,15 @@ Don't like <kbd>⌥ Tab</kbd>? Click the menu bar icon → **Shortcut** → **Re
 
 ## Install
 
-**Download:** grab `Blink.zip` from the [latest release](https://github.com/pnborchert/blink/releases/latest), unzip it and move **Blink.app** to your Applications folder.
-
-Blink isn't signed with a paid Apple developer account, so macOS will refuse to open it the first time. Either go to *System Settings → Privacy & Security* and click **Open Anyway**, or run:
+**Homebrew** (easiest — also gets you updates with `brew upgrade`):
 
 ```sh
-xattr -dr com.apple.quarantine /Applications/Blink.app
+brew install --cask pnborchert/tap/blink
 ```
 
-**Or build it yourself** (needs macOS 13+ and Xcode or just the Command Line Tools):
+**Download:** grab [Blink.zip](https://github.com/pnborchert/blink/releases/latest/download/Blink.zip), unzip it and move **Blink.app** to Applications. Blink isn't signed with a paid Apple developer account, so the first time macOS will refuse to open it: go to *System Settings → Privacy & Security* and click **Open Anyway** (or run `xattr -dr com.apple.quarantine /Applications/Blink.app`). Homebrew takes care of this for you.
+
+**Build it yourself** (macOS 13+, Xcode or just the Command Line Tools):
 
 ```sh
 git clone https://github.com/pnborchert/blink.git
@@ -71,7 +77,7 @@ Sources/BlinkCore/   screen geometry, shortcut parsing, config (pure Swift, unit
 Sources/Blink/       the menu bar app
 ```
 
-`make test` runs the tests, `make run` builds and launches from `dist/`. Ideas for what's next are in [ROADMAP.md](ROADMAP.md) — issues and PRs welcome.
+`make test` runs the tests, `make run` builds and launches from `dist/`, and `scripts/release.sh 1.1.0` cuts a release and updates the Homebrew tap. Ideas for what's next are in [ROADMAP.md](ROADMAP.md) — issues and PRs welcome.
 
 ## License
 
